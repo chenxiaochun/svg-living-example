@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="0" style="fill: #d8210d">
+        <animate id="a1" attributeName="r" attributeType="XML" from="0" to="30" begin="0s" dur=".2s" fill="freeze"></animate>
+    </circle>
+    
+    <circle cx="150" cy="100" r="0" style="fill: #e61b64">
+        <animate id="a2" attributeName="r" attributeType="XML" from="0" to="30" begin="a1.end" dur=".2s" fill="freeze"></animate>
+    </circle>
+    
+    <circle cx="200" cy="100" r="0" style="fill: #d7006f">
+        <animate id="a3" attributeName="r" attributeType="XML" from="0" to="30" begin="a2.end" dur=".2s" fill="freeze"></animate>
+    </circle>
+    
+    <circle cx="250" cy="100" r="0" style="fill: #ee869a">
+        <animate id="a4" attributeName="r" attributeType="XML" from="0" to="30" begin="a3.end" dur=".2s" fill="freeze"></animate>
+    </circle>
+    
+    <circle cx="300" cy="100" r="0" style="fill: #e5004f">
+        <animate id="a5" attributeName="r" attributeType="XML" from="0" to="30" begin="a4.end" dur=".2s" fill="freeze"></animate>
+    </circle>
+    
+    <circle cx="350" cy="100" r="0" style="fill: #ea5520">
+        <animate id="a6" attributeName="r" attributeType="XML" from="0" to="30" begin="a5.end" dur=".2s" fill="freeze"></animate>
+    </circle>
+</svg>
