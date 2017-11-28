@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <circle cx="150" cy="150" r="50" style="fill: #ff6600;">
         <animate attributeName="r" attributeType="XML" values="10;80;10" begin="0s" dur="2s" fill="freeze" repeatCount="indefinite"></animate>
         <animate attributeName="fill-opacity" attributeType="CSS" values="1;0.3;1" begin="0s" dur="1s" repeatCount="indefinite"></animate>
