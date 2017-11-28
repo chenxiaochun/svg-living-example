@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG使用鼠标点击绘制折线效果</title>
+</head>
+<body>
+<div id="box">
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="600" height="600" style="border: 1px solid #000"></svg>
+</div>
+<script>
+window.onload = () => {
+    var ming = 'http://www.w3.org/2000/svg'
+    var oSvg = document.getElementById('svg')
+    var oPolyLine = null
+    var pointsNum = ''
+    var box = document.getElementById('box')
+
+    box.appendChild(createTag('svg', {'xmlns': ming}))
+    oSvg.onmousedown = event => {
+        var x = event.clientX - box.offsetLeft
+        var y = event.clientY - box.offsetTop
+
+        if(!oPolyLine){
+            oPolyLine = createTag('polyline', {
+                'fill': 'none',
+                'stroke': 'red',
+                'stroke-width': 2
+            })
+            oSvg.appendChild(oPolyLine)
+        }
+
+        if(pointsNum == ''){
+            pointsNum = `${x},${y}`
+        }
+        else{
+            pointsNum += `,${x},${y}`
+        }
+
+        oPolyLine.setAttribute('points', pointsNum)
+        var oCircle = createTag('circle', {
+            'cx': x,
+            'cy': y,
+            'r': 5,
+            'fill': 'white',
+            'stroke': 'red',
+            'stroke-width': 3
+        })
+        oSvg.appendChild(oCircle)
+
+        if(event.button == 2){
+            oSvg.onmousemove = null
+            oSvg.oncontextmenu = () => {
+                oSvg.onmousemove = null
+                return false
+            }
+        }
+        else{
+            oSvg.onmousemove = event => {
+                if(oPolyLine){
+                    let x = event.clientX - box.offsetLeft
+                    let y = event.clientY - box.offsetTop
+                    oPolyLine.setAttribute('points', `${pointsNum},${x},${y}`)
+                }
+            }
+        }
+    }
+
+    function createTag(tagName, tagAttr){
+        var tag = document.createElementNS(ming, tagName)
+        for(let attr in tagAttr){
+            tag.setAttribute(attr, tagAttr[attr])
+        }
+        return tag
+    }
+}
+</script>
+
+</body>
+</html>
