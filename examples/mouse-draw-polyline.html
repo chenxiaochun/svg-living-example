@@ -34,8 +34,7 @@ window.onload = () => {
 
         if(pointsNum == ''){
             pointsNum = `${x},${y}`
-        }
-        else{
+        }else{
             pointsNum += `,${x},${y}`
         }
 
@@ -56,8 +55,7 @@ window.onload = () => {
                 oSvg.onmousemove = null
                 return false
             }
-        }
-        else{
+        }else{
             oSvg.onmousemove = event => {
                 if(oPolyLine){
                     let x = event.clientX - box.offsetLeft
