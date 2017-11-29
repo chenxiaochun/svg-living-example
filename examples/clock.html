@@ -53,12 +53,13 @@ function start(){
     var secondsHand = document.getElementById('seconds')
     
     /**
-     * rotate里面使用了一个时间与度数的转换关系
-     * 例如，假设现在是下午14点，根据上面的表达式计算hours=2，然后乘以30就是60度，正好指向2的方向
+     * 1. rotate里面需要对时间与度数进行转换
+     * 2. 假设现在是下午14:30，根据上面的表达式计算hours=2，然后乘以30就是60度，时针正好指向2的方向
+     * 3. 又因为分针指向的是30，所以还应该给时针再添加一个偏移量，让时针指向2和3中间的位置
     */
-    hoursHand.setAttribute('transform', `rotate(${hours*30} 100 100)`)
-    minutesHand.setAttribute('transform', `rotate(${minutes*6} 100 100)`)
-    secondsHand.setAttribute('transform', `rotate(${seconds*6} 100 100)`)
+    hoursHand.setAttribute('transform', `rotate(${(hours + (minutes / 60)) * 30} 100 100)`)
+    minutesHand.setAttribute('transform', `rotate(${minutes * 6} 100 100)`)
+    secondsHand.setAttribute('transform', `rotate(${seconds * 6} 100 100)`)
 }
 
 start()
