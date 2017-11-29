@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圆形钟表效果</title>
+</head>
+<body>
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="filter" x="0" y="0">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1"></feGaussianBlur>
+        </filter>
+    </defs>
+    
+    <circle cx="100" cy="100" r="88" fill="#999"></circle>
+    <circle filter="url(#filter)" cx="100" cy="100" r="85" fill="#000"></circle>
+
+    <circle cx="100" cy="100" r="5" fill="#fff"></circle>    
+    <circle cx="137" cy="36" r="3" fill="#fff"></circle>
+    <circle cx="164" cy="63" r="3" fill="#fff"></circle>
+    <circle cx="175" cy="100" r="3" fill="#fff"></circle>
+    <circle cx="164" cy="137" r="3" fill="#fff"></circle>
+    <circle cx="137" cy="165" r="3" fill="#fff"></circle>
+    <circle cx="100" cy="175" r="3" fill="#fff"></circle>
+    <circle cx="63" cy="165" r="3" fill="#fff"></circle>
+    <circle cx="36" cy="137" r="3" fill="#fff"></circle>
+    <circle cx="25" cy="100" r="3" fill="#fff"></circle>
+    <circle cx="36" cy="63" r="3" fill="#fff"></circle>
+    <circle cx="63" cy="36" r="3" fill="#fff"></circle>
+    <circle cx="100" cy="26" r="3" fill="#fff"></circle>
+    
+    <text font-size="16" x="90" y="46" fill="#fff">12</text>
+    <text font-size="16" x="31" y="105" fill="#fff">9</text>
+    <text font-size="16" x="94" y="170" fill="#fff">6</text>
+    <text font-size="16" x="160" y="105" fill="#fff">3</text>
+    
+    <line id="seconds" x1="100" y1="110" x2="100" y2="28" stroke-width="2" stroke="#fff"></line>
+    <line id="minutes" x1="100" y1="110" x2="100" y2="50" stroke-width="3" stroke="#fff"></line>
+    <line id="hours" x1="100" y1="110" x2="100" y2="60" stroke-width="4" stroke="#fff"></line>
+</svg>
+<script>
+function start(){
+    var currentDate = new Date()
+    var hours = currentDate.getHours()
+        hours = hours > 12 ? hours -12 : hours
+    var minutes = currentDate.getMinutes()
+    var seconds = currentDate.getSeconds()
+
+    var hoursHand = document.getElementById('hours')
+    var minutesHand = document.getElementById('minutes')
+    var secondsHand = document.getElementById('seconds')
+    
+    /**
+     * rotate里面使用了一个时间与度数的转换关系
+     * 例如，假设现在是下午14点，根据上面的表达式计算hours=2，然后乘以30就是60度，正好指向2的方向
+    */
+    hoursHand.setAttribute('transform', `rotate(${hours*30} 100 100)`)
+    minutesHand.setAttribute('transform', `rotate(${minutes*6} 100 100)`)
+    secondsHand.setAttribute('transform', `rotate(${seconds*6} 100 100)`)
+}
+
+start()
+setInterval(start, 1000)
+
+</script>
+</body>
+</html>
