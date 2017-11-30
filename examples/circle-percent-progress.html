@@ -65,28 +65,30 @@ body{
 </div>
 
 <script>
-const perimeter = 565
+const perimeter = Math.PI * 90 * 2 //计算圆形周长
 const circleOne = document.getElementById('circleOne')
 const donutTitle = document.querySelector('.donut-title')
-const value = 500
 
-setTimeout(() => {
-    var i = 0;
-    /**
-     * 当前值/周长*100，可以计算出应该显示的百分比数字
-    */
-    var p = (value / perimeter * 100).toFixed(2)
-    var t = setInterval(() => {
-        if(i < p){
-            donutTitle.innerHTML = ++i
-        }else{
-            clearInterval(t)
-        }
-    }, (100 - p))
-    circleOne.setAttribute('style', `stroke-dashoffset: ${perimeter - value};`)
-}, 100)
+function start(value){
+    value = value > perimeter ? perimeter : value
+    console.log(value)
+    setTimeout(() => {
+        var i = 0;
+        var p = (value / perimeter * 100).toFixed(2) //当前值/周长*100，可以计算出应该显示的百分比数字
+            p = p > 100 ? 100 : p
+        var delay = 100 - p
+        var t = setInterval(() => {
+            if(i < p){
+                donutTitle.innerHTML = ++i
+            }else{
+                clearInterval(t)
+            }
+        }, delay)
+        circleOne.setAttribute('style', `stroke-dashoffset: ${perimeter - value}; transition-duration: ${delay}`)
+    }, 100)
+}
 
-
+start(500)
 </script>
 </body>
 </html>
