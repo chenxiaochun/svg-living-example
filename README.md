@@ -1,5 +1,6 @@
 ## svg实例
 
+* [环形百分比进度条](examples/circle-percent-progress.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/VrVzrb)
 * [圆形钟表](examples/clock.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/rYqvNX?editors=1010)
 * [使用鼠标点击绘制折线](examples/mouse-draw-polyline.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/WXgWRW)
 * [大小不断变化的圆](examples/circle-scale-change.svg)
