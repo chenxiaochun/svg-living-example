@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>环形百分比进度条</title>
+</head>
+<body>
+<style>
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #212121;
+}
+.donut{
+    position: relative;
+    width: 240px;
+    height: 240px;
+}
+.donut-svg{
+    transform: rotate(-90deg);
+}
+.donut-svg-circle-one{
+    stroke-dasharray: 565.48668;
+    stroke-dashoffset: 565;
+    transition: stroke-dashoffset 1000ms ease-in-out;
+}
+.donut-copy{
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    text-align: center;
+    color: #8a6fd5;
+    font-weight: 200;
+}
+.donut-title{
+    font-size: 79px;
+    transform: translateX(0);
+}
+.donut-spic{
+    font-size: 30px;
+    line-height: 1em;
+    transform: translateX(-20px);
+}
+</style>
+<div class="donut">
+    <svg width="240" height="240" xmlns="http://www.w3.org/2000/svg" class="donut-svg">
+        <circle class="donut-svg-scrim" r="90" cx="120" cy="120" stroke-width="3" stroke="#333" fill="none">
+        </circle>
+        <circle id="circleOne" class="donut-svg-circle-one" r="90" cx="120" cy="120" stroke-width="4" stroke="url(#purple)" stroke-linejoin="round" stroke-linecap="round" fill="none">
+        </circle>
+        
+        <defs>
+            <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7a5bcf"></stop>
+                <stop offset="100%" stop-color="#8a6fd5"></stop>
+            </linearGradient>
+        </defs>
+    </svg>
+    <div class="donut-copy">
+        <span class="donut-title">0</span><span class="donut-spic">%</span>
+    </div>
+</div>
+
+<script>
+const perimeter = 565
+const circleOne = document.getElementById('circleOne')
+const donutTitle = document.querySelector('.donut-title')
+const value = 500
+
+setTimeout(() => {
+    var i = 0;
+    /**
+     * 当前值/周长*100，可以计算出应该显示的百分比数字
+    */
+    var p = (value / perimeter * 100).toFixed(2)
+    var t = setInterval(() => {
+        if(i < p){
+            donutTitle.innerHTML = ++i
+        }else{
+            clearInterval(t)
+        }
+    }, (100 - p))
+    circleOne.setAttribute('style', `stroke-dashoffset: ${perimeter - value};`)
+}, 100)
+
+
+</script>
+</body>
+</html>
