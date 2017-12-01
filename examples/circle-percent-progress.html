@@ -72,7 +72,7 @@ const donutTitle = document.querySelector('.donut-title')
 function start(value){
     value = value > perimeter ? perimeter : value
     setTimeout(() => {
-        var i = 0;
+        var i = 0
         var p = (value / perimeter * 100).toFixed(2) //当前值/周长*100，可以计算出应该显示的百分比数字
             p = p > 100 ? 100 : p
         var delay = 100 - p
@@ -86,7 +86,6 @@ function start(value){
         circleOne.setAttribute('style', `stroke-dashoffset: ${perimeter - value}; transition-duration: ${delay}`)
     }, 100)
 }
-
 start(500)
 </script>
 </body>
