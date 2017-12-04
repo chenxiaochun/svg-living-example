@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框动画</title>
+</head>
+<body>
+<style>
+html,body{
+    background: #333;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.wrapper{
+    width: 320px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+.shape{
+    fill: transparent;
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    stroke: #19f6e8;
+    transition: all 0.5s linear;
+}
+.text{
+    position: relative;
+    top: -48px;
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 8px;
+    line-height: 32px;
+}
+.wrapper:hover .shape{
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+}
+</style>
+<div class="wrapper">
+    <svg width="320" height="60" xmlns="http://www.w3.org/2000/svg">
+        <rect class="shape" width="320" height="60"></rect>
+    </svg>
+    <div class="text">HOVER</div>
+</div>
+
+<!-- 参考链接：https://codepen.io/seanmccaffery/pen/xBpbG -->
+</body>
+</html>
