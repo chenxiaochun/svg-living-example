@@ -23,8 +23,13 @@ html,body{
 }
 .shape{
     fill: transparent;
-    stroke-dasharray: 140 540;
-    stroke-dashoffset: -474;
+    stroke-dasharray: 140 540; /*定义宽度140，间隔为540的线段*/
+    /*
+    * 反推一下，为什么是470。
+    * 1. 下边框长度为320减去140等于180
+    * 2. 矩形周长为760，减去左右边框120，减去上边框320，再减去180，正好为470
+    */
+    stroke-dashoffset: -470;
     stroke-width: 8px;
     stroke: #19f6e8;
     transition: all 0.5s linear;
