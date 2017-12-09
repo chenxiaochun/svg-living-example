@@ -1,5 +1,6 @@
 ## svg实例
 
+* [模仿 Skype loading](examples/Skype-loading.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/QOeqzq?editors=1100)
 * [边框动画](examples/border-animation.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/LOaVNZ)
 * [环形百分比进度条](examples/circle-percent-progress.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/VrVzrb)
 * [圆形钟表](examples/clock.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/rYqvNX?editors=1010)
