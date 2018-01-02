@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水波效果</title>
+</head>
+<body>
+<svg width="340" height="231" id="svg">
+    <defs>
+    <filter id="f" filterUnits="objectBoundingBox" primitiveUnits="objectBoundingBox" x="0" y="0" width="1.1" height="1.1">
+        <feImage result="pict1" xlink:href="#m1" x="0" y="0" width="1.1" height="1.1"></feImage>
+        <feImage result="pict2" xlink:href="#m2" x="0" y="0" width="1.1" height="1.1"></feImage>
+        <feDisplacementMap id="fdm" scale="0.05" xChannelSelector="R" yChannelSelector="R" in2="pict2" in="pict1"></feDisplacementMap>
+    </filter>
+    <radialGradient id="g" cx=".6" cy=".6" r="0" spreadMethod="reflect">
+        <stop offset="0" stop-color="#000"></stop>
+        <stop offset="1" stop-color="#fff"></stop>
+    </radialGradient>
+    <rect id="m2" x="-10" y="0" width="410" height="300" fill="url(#g)"></rect>
+    <image id="m1" x="0" y="0" width="400" height="300" xlink:href="http://www.oxxostudio.tw/img/articles/201410/20141009_1_demo3.JPG"></image>
+    </defs>
+    <rect x="0" y="0" width="400" height="300" filter="url(#f)" transform="translate(-60 -60)"></rect>
+</svg>
+
+<script>
+var g = document.getElementById('g')
+var svg = document.getElementById('svg')
+
+svg.onclick = function(){
+    var i = 0.01
+    var t = setInterval(() => {
+        if(i >= 0.5){
+            i = 1
+            clearInterval(t)
+        }
+        i += 0.01
+        g.setAttribute('r', i)
+    }, 30)
+}
+</script>
+
+<!-- 
+参考链接：http://www.zhangxinxu.com/wordpress/2017/12/understand-svg-fedisplacementmap-filter/
+        http://www.oxxostudio.tw/articles/201410/svg-28-filter-feDisplacementMap.html
+-->
+</body>
+</html>
