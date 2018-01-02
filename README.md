@@ -1,5 +1,6 @@
 ## svg实例
 
+* [水波效果](examples/water-ripple.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/KZqvEB?editors=1010)
 * [模仿 Skype loading](examples/Skype-loading.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/QOeqzq?editors=1100)
 * [边框动画](examples/border-animation.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/LOaVNZ)
 * [环形百分比进度条](examples/circle-percent-progress.html)，[【codepen 效果预览】](https://codepen.io/sjzcxc/pen/VrVzrb)
